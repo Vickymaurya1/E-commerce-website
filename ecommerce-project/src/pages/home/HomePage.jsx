@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
-import { ProductGrid  } from "./Products.Grid";
+import { ProductGrid  } from "./ProductsGrid";
 import "./HomePage.css";
 
-export function HomePage({cart}) {
+export function HomePage({cart , loadCart}) {
   const [products, setProducts] = useState([]);
   
   useEffect(() => {
@@ -20,7 +20,7 @@ const response =  await axios.get("/api/products")
       <Header cart = {cart} />
 
       <div className="home-page">
-       <ProductGrid products={products}/>
+       <ProductGrid products={products} loadCart = {loadCart}/>
       </div>
     </>
   );
